@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===== SEO ===== -->
+  <title data-i18n="meta.title">Mohammad Almousa — Backend Developer</title>
+  <meta name="description" data-i18n="meta.description" data-i18n-attr="content"
+        content="Backend developer working with Python, Django and Django REST Framework.">
+  <meta name="author" content="Mohammad Almousa">
+  <link rel="canonical" href="YOUR_SITE_URL">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" data-i18n="meta.title" data-i18n-attr="content" content="Mohammad Almousa — Backend Developer">
+  <meta property="og:description" data-i18n="meta.description" data-i18n-attr="content" content="">
+  <meta property="og:image" content="assets/images/profile.jpg">
+  <meta property="og:url" content="YOUR_SITE_URL">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ===== Favicon ===== -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <!-- ===== الخطوط ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+  <!-- ===== ملفات التنسيق ===== -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#home" data-i18n="nav.skip">Skip to content</a>
+
+  <!-- ==========================================================
+       شريط التنقل — جانبي في الديسكتوب، سفلي عائم في الموبايل
+       ينقلب إلى اليمين تلقائيًا عند اختيار العربية
+       ========================================================== -->
+  <aside class="rail" id="rail" data-i18n="nav.ariaLabel" data-i18n-attr="aria-label">
+    <a class="rail__brand" href="#home">
+      <span class="rail__mark" aria-hidden="true">M</span>
+      <span class="rail__name">Mohammad Almousa</span>
+    </a>
+
+    <nav class="rail__nav">
+      <ul class="rail__list">
+        <li>
+          <a class="nav-link is-active" href="#home" data-nav-link>
+            <span class="nav-link__icon" data-icon="home"></span>
+            <span class="nav-link__label" data-i18n="nav.home">Home</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#works" data-nav-link>
+            <span class="nav-link__icon" data-icon="works"></span>
+            <span class="nav-link__label" data-i18n="nav.works">Works</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#deliverables" data-nav-link>
+            <span class="nav-link__icon" data-icon="docs"></span>
+            <span class="nav-link__label" data-i18n="nav.deliverables">Deliverables</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#skills" data-nav-link>
+            <span class="nav-link__icon" data-icon="skills"></span>
+            <span class="nav-link__label" data-i18n="nav.skills">Skills</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#contact" data-nav-link>
+            <span class="nav-link__icon" data-icon="contact"></span>
+            <span class="nav-link__label" data-i18n="nav.contact">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <button class="lang-btn" id="langToggle" type="button"
+            data-i18n="nav.switchLangAria" data-i18n-attr="aria-label">
+      <span class="lang-btn__icon" data-icon="globe"></span>
+      <span class="lang-btn__label" data-i18n="nav.switchLang">العربية</span>
+    </button>
+  </aside>
+
+  <div class="page">
+    <main>
+
+      <!-- ================= Home / Hero ================= -->
+      <section class="section hero" id="home">
+        <div class="container">
+          <div class="hero__grid">
+            <div class="hero__content">
+              <span class="hero__status">
+                <span class="hero__dot" aria-hidden="true"></span>
+                <span data-i18n="hero.status">Open to freelance work</span>
+              </span>
+
+              <p class="hero__greeting" data-i18n="hero.greeting">Welcome, I am</p>
+
+              <h1 class="hero__title">
+                <!-- نص ثابت لمحركات البحث وقارئات الشاشة -->
+                <span class="sr-only" data-i18n="hero.srName">Mohammad Almousa — Backend Developer</span>
+                <!-- النص المتغير (أنيميشن الكتابة) -->
+                <span class="hero__typed-line" aria-hidden="true">
+                  <span class="hero__typed" id="typedText" dir="auto"></span><span class="hero__cursor"></span>
+                </span>
+              </h1>
+
+              <p class="hero__lead" data-i18n="hero.lead">
+                I build backend systems with Python and Django.
+              </p>
+
+              <div class="hero__actions">
+                <a class="btn btn--primary" href="#works">
+                  <span data-i18n="hero.ctaWorks">See my work</span>
+                </a>
+                <a class="btn btn--ghost" href="#contact">
+                  <span data-icon="mail" aria-hidden="true"></span>
+                  <span data-i18n="hero.ctaContact">Get in touch</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="hero__media">
+              <figure class="avatar-frame">
+                <!-- ضع صورتك هنا: assets/images/profile.jpg -->
+                <img class="avatar-frame__img" src="assets/images/profile.jpg"
+                     data-i18n="hero.imageAlt" data-i18n-attr="alt"
+                     alt="Portrait of Mohammad Almousa" width="360" height="450">
+                <figcaption class="avatar-frame__tag">
+                  <span data-icon="database" aria-hidden="true" style="width:16px"></span>
+                  <span><b>Backend</b> · Django · REST API</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= About ================= -->
+      <section class="section" id="about" aria-labelledby="aboutTitle">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <span class="section-route" data-i18n="about.route">/about</span>
+            <h2 id="aboutTitle" data-i18n="about.title">About me</h2>
+          </header>
+
+          <div class="about__grid">
+            <div class="about__text" data-reveal>
+              <p data-i18n="about.p1"></p>
+              <p data-i18n="about.p2"></p>
+              <p data-i18n="about.p3"></p>
+            </div>
+
+            <aside class="about__panel" data-reveal data-reveal-delay="1">
+              <h3 data-i18n="about.panelTitle">At a glance</h3>
+              <dl>
+                <div class="fact-row">
+                  <dt class="fact-row__label" data-i18n="about.focusLabel">Focus</dt>
+                  <dd class="fact-row__value" data-i18n="about.focusValue">REST API development</dd>
+                </div>
+                <div class="fact-row">
+                  <dt class="fact-row__label" data-i18n="about.stackLabel">Main stack</dt>
+                  <dd class="fact-row__value" data-i18n="about.stackValue">Python · Django · DRF</dd>
+                </div>
+                <div class="fact-row">
+                  <dt class="fact-row__label" data-i18n="about.dbLabel">Databases</dt>
+                  <dd class="fact-row__value" data-i18n="about.dbValue">PostgreSQL · MySQL</dd>
+                </div>
+                <div class="fact-row">
+                  <dt class="fact-row__label" data-i18n="about.learningLabel">Currently learning</dt>
+                  <dd class="fact-row__value" data-i18n="about.learningValue">Docker · Testing</dd>
+                </div>
+                <div class="fact-row">
+                  <dt class="fact-row__label" data-i18n="about.langsLabel">Languages</dt>
+                  <dd class="fact-row__value" data-i18n="about.langsValue">Arabic · English</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= Works ================= -->
+      <section class="section section--alt" id="works">
+        <div class="container">
+          <header class="section-head section-head--row" data-reveal>
+            <div>
+              <span class="section-route" data-i18n="works.route">/works</span>
+              <h2 data-i18n="works.title">Works</h2>
+              <p data-i18n="works.subtitle">Backend projects I built.</p>
+            </div>
+
+            <div class="carousel__nav">
+              <button class="carousel__arrow" id="projectsPrev" type="button"
+                      data-i18n="works.prev" data-i18n-attr="aria-label">
+                <span data-icon="arrowLeft"></span>
+              </button>
+              <button class="carousel__arrow" id="projectsNext" type="button"
+                      data-i18n="works.next" data-i18n-attr="aria-label">
+                <span data-icon="arrowRight"></span>
+              </button>
+            </div>
+          </header>
+
+          <!-- الكروت تُبنى تلقائيًا من js/data/projects.js -->
+          <ul class="carousel__track" id="projectsTrack"></ul>
+        </div>
+      </section>
+
+      <!-- ================= What You'll Receive ================= -->
+      <section class="section" id="deliverables" aria-labelledby="deliverablesTitle">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <span class="section-route" data-i18n="deliverables.route">/deliverables</span>
+            <h2 id="deliverablesTitle" data-i18n="deliverables.title">What You'll Receive</h2>
+            <p data-i18n="deliverables.subtitle"></p>
+          </header>
+
+          <!-- الكروت تُبنى تلقائيًا من js/deliverables.js -->
+          <ul class="deliverables-grid" id="deliverablesGrid"></ul>
+        </div>
+      </section>
+
+      <!-- ================= Skills ================= -->
+      <section class="section section--alt" id="skills">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <span class="section-route" data-i18n="skills.route">/skills</span>
+            <h2 data-i18n="skills.title">Skills</h2>
+            <p data-i18n="skills.subtitle">I build backend systems using:</p>
+          </header>
+
+          <!-- المجموعات تُبنى تلقائيًا من js/data/skills.js -->
+          <ul class="skills-list" id="skillsList"></ul>
+        </div>
+      </section>
+
+      <!-- ================= Contact ================= -->
+      <section class="section" id="contact">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <span class="section-route" data-i18n="contact.route">/contact</span>
+            <h2 data-i18n="contact.title">Contact me</h2>
+            <p data-i18n="contact.subtitle">Tell me about your project.</p>
+          </header>
+          <div class="contact__grid">
+
+            <!-- معلومات التواصل — تُبنى من js/data/contact.js -->
+            <aside class="contact-info" data-reveal>
+              <div class="contact-info__head">
+                <img class="contact-info__avatar" src="assets/images/profile.jpg"
+                     data-i18n="contact.profileAlt" data-i18n-attr="alt"
+                     alt="Mohammad Almousa" width="66" height="66" loading="lazy">
+                <div>
+                  <p class="contact-info__name" data-i18n="contact.profileAlt">Mohammad Almousa</p>
+                  <p class="contact-info__role">Backend Developer</p>
+                </div>
+              </div>
+
+              <div id="contactInfo"></div>
+
+              <p class="contact-info__note" data-i18n="contact.availability"></p>
+            </aside>
+
+            <!-- النموذج -->
+            <div class="contact-form" data-reveal data-reveal-delay="1">
+              <h3 class="contact-form__title" data-i18n="contact.formTitle">Send a message</h3>
+
+              <form id="contactForm" novalidate>
+                <div class="form__grid">
+                  <div class="field">
+                    <label for="cName" data-i18n="contact.name">Name</label>
+                    <input id="cName" name="name" type="text" autocomplete="name"
+                           data-i18n="contact.namePlaceholder" data-i18n-attr="placeholder">
+                    <span class="field__error" aria-live="polite"></span>
+                  </div>
+
+                  <div class="field">
+                    <label for="cEmail" data-i18n="contact.email">Email</label>
+                    <input id="cEmail" name="email" type="email" autocomplete="email" dir="ltr"
+                           data-i18n="contact.emailPlaceholder" data-i18n-attr="placeholder">
+                    <span class="field__error" aria-live="polite"></span>
+                  </div>
+
+                  <div class="field field--full">
+                    <label for="cSubject" data-i18n="contact.subject">Subject</label>
+                    <input id="cSubject" name="subject" type="text"
+                           data-i18n="contact.subjectPlaceholder" data-i18n-attr="placeholder">
+                    <span class="field__error" aria-live="polite"></span>
+                  </div>
+
+                  <div class="field field--full">
+                    <label for="cMessage" data-i18n="contact.message">Message</label>
+                    <textarea id="cMessage" name="message" rows="5"
+                              data-i18n="contact.messagePlaceholder" data-i18n-attr="placeholder"></textarea>
+                    <span class="field__error" aria-live="polite"></span>
+                  </div>
+                </div>
+
+                <div class="form__footer">
+                  <button class="btn btn--primary" type="submit">
+                    <span data-icon="send"></span>
+                    <span data-i18n="contact.send">Send Message</span>
+                  </button>
+                  <p class="form__status" id="contactStatus" aria-live="polite"></p>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>© <span id="footerYear">2026</span> <span data-i18n="footer.rights">Mohammad Almousa. All rights reserved.</span></p>
+        <p class="footer__mono" data-i18n="footer.built">Built with HTML, CSS &amp; JavaScript</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== ملفات JavaScript (الترتيب مهم) ===== -->
+  <script src="js/translations.js"></script>
+  <script src="js/data/projects.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/data/contact.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/typing.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/project-links.js"></script>
+  <script src="js/deliverables.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/skills.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

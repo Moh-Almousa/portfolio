@@ -1,0 +1,422 @@
+/* ==========================================================================
+   project.css
+   تنسيقات صفحة تفاصيل المشروع فقط (لا تُحمَّل في الصفحة الرئيسية):
+   شريط العودة + رأس المشروع + معرض الصور + Lightbox + عرض README.
+   ========================================================================== */
+
+/* ---------- شريط العودة (بديل الـ navigation في صفحة المشروع) ---------- */
+.project-topbar {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 40;
+  background: rgba(12, 18, 24, .82);
+  backdrop-filter: blur(14px);
+  border-block-end: 1px solid var(--border);
+}
+
+.project-topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 14px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px 9px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  font-size: .92rem;
+  transition: color var(--speed) var(--ease),
+              border-color var(--speed) var(--ease),
+              background var(--speed) var(--ease);
+}
+
+.back-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.back-link svg { width: 18px; height: 18px; }
+
+/* زر اللغة داخل شريط صفحة المشروع (يختلف عن زر الشريط الجانبي) */
+.lang-btn--inline {
+  margin-inline: 0;
+  padding: 9px 16px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+}
+
+.lang-btn--inline .lang-btn__icon { width: auto; }
+.lang-btn--inline .lang-btn__label { opacity: 1; }
+
+/* عنوان قسم README */
+.project-readme-title {
+  font-size: clamp(1.3rem, 1.1rem + .8vw, 1.7rem);
+  margin-block-end: 20px;
+}
+
+/* السهم ينقلب تلقائيًا مع اتجاه اللغة */
+html[dir="rtl"] .back-link svg { transform: scaleX(-1); }
+
+/* ---------- رأس المشروع ---------- */
+.project-hero { padding-block: clamp(40px, 6vw, 70px) clamp(28px, 4vw, 44px); }
+
+.project-hero__top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-block-end: 16px;
+}
+
+.project-hero h1 { margin: 0; }
+
+.project-hero__desc {
+  font-size: 1.05rem;
+  margin-block: 14px 22px;
+}
+
+.project-hero__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-block-end: 24px;
+}
+
+.project-hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-hero__links .btn { padding: 10px 18px; font-size: .9rem; }
+
+.btn.is-missing {
+  opacity: .45;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+.btn.is-missing:hover { color: var(--text); border-color: var(--border-strong); background: none; }
+
+/* ==========================================================================
+   معرض الصور
+   ========================================================================== */
+.gallery { padding-block: 0 clamp(36px, 5vw, 60px); }
+
+.gallery__stage {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.gallery__main {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+.gallery__main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--speed) var(--ease);
+}
+
+.gallery__nav {
+  position: absolute;
+  inset-block-start: 50%;
+  translate: 0 -50%;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(12, 18, 24, .72);
+  border: 1px solid var(--border);
+  color: var(--text);
+  backdrop-filter: blur(8px);
+  transition: background var(--speed) var(--ease), color var(--speed) var(--ease);
+}
+
+.gallery__nav:hover { background: var(--accent); color: #06212A; }
+.gallery__nav svg { width: 20px; height: 20px; }
+
+.gallery__nav--prev { inset-inline-start: 14px; }
+.gallery__nav--next { inset-inline-end: 14px; }
+
+/* الأسهم تتبع اتجاه اللغة */
+html[dir="rtl"] .gallery__nav svg { transform: scaleX(-1); }
+
+.gallery__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-block: 14px;
+}
+
+.gallery__counter {
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  color: var(--text-muted);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.gallery__tools { display: flex; gap: 8px; }
+
+.gallery__tool {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  transition: color var(--speed) var(--ease),
+              border-color var(--speed) var(--ease),
+              background var(--speed) var(--ease);
+}
+
+.gallery__tool:hover,
+.gallery__tool.is-active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.gallery__tool svg { width: 18px; height: 18px; }
+
+.gallery__thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery__thumb {
+  position: relative;
+  width: 104px;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  padding: 0;
+  transition: border-color var(--speed) var(--ease), opacity var(--speed) var(--ease);
+  opacity: .62;
+}
+
+.gallery__thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.gallery__thumb:hover { opacity: 1; }
+
+.gallery__thumb.is-active {
+  opacity: 1;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+/* كارت "+N" للصور المخفية */
+.gallery__thumb--more { opacity: 1; }
+
+.gallery__thumb--more img { filter: brightness(.35); }
+
+.gallery__thumb--more span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+@media (max-width: 560px) {
+  .gallery__thumb { width: 78px; }
+}
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: clamp(16px, 4vw, 48px);
+  background: rgba(6, 10, 14, .92);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 86vh;
+  border-radius: var(--radius);
+  object-fit: contain;
+}
+
+.lightbox__nav,
+.lightbox__close {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  transition: background var(--speed) var(--ease), color var(--speed) var(--ease);
+}
+
+.lightbox__nav:hover,
+.lightbox__close:hover { background: var(--accent); color: #06212A; }
+
+.lightbox__nav svg, .lightbox__close svg { width: 20px; height: 20px; }
+
+html[dir="rtl"] .lightbox__nav svg { transform: scaleX(-1); }
+
+.lightbox__close {
+  position: absolute;
+  inset-block-start: 18px;
+  inset-inline-end: 18px;
+}
+
+@media (max-width: 640px) {
+  .lightbox__nav { position: absolute; inset-block-end: 22px; }
+  .lightbox__nav--prev { inset-inline-start: 22px; }
+  .lightbox__nav--next { inset-inline-end: 22px; }
+}
+
+/* ==========================================================================
+   محتوى README
+   ========================================================================== */
+.readme {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 44px);
+  /* محتوى README تقني ومكتوب بالإنجليزية عادةً */
+  direction: ltr;
+  text-align: start;
+}
+
+.readme > *:first-child { margin-block-start: 0; }
+
+.readme h1, .readme h2, .readme h3, .readme h4 {
+  margin-block: 34px 14px;
+  line-height: 1.3;
+}
+
+.readme h1 { font-size: 1.8rem; }
+.readme h2 {
+  font-size: 1.35rem;
+  padding-block-end: 10px;
+  border-block-end: 1px solid var(--border);
+}
+.readme h3 { font-size: 1.1rem; color: var(--accent); }
+
+.readme p, .readme li { color: var(--text-muted); max-width: 78ch; }
+.readme p { margin-block: 12px; }
+
+.readme ul, .readme ol { margin-block: 12px; padding-inline-start: 24px; }
+.readme ul li { list-style: disc; }
+.readme ol li { list-style: decimal; }
+.readme li { margin-block: 6px; }
+
+.readme a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+.readme code {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1px 6px;
+  color: var(--accent);
+}
+
+.readme .md-code {
+  margin-block: 18px;
+  padding: 18px 20px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+
+.readme .md-code code {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--text);
+  font-size: .86rem;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+.readme .md-code[data-lang]::before {
+  content: attr(data-lang);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--text-dim);
+  margin-block-end: 10px;
+}
+
+.readme blockquote {
+  margin-block: 18px;
+  padding: 12px 18px;
+  border-inline-start: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+}
+
+.readme blockquote p { margin: 0; color: var(--text); }
+
+.readme hr { border: 0; border-block-start: 1px solid var(--border); margin-block: 30px; }
+
+.readme img { border-radius: var(--radius); margin-block: 18px; }
+
+.readme .md-table-wrap { overflow-x: auto; margin-block: 20px; }
+
+.readme table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+  min-width: 420px;
+}
+
+.readme th, .readme td {
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  text-align: start;
+}
+
+.readme th { background: var(--surface-2); color: var(--text); font-weight: 600; }
+.readme td { color: var(--text-muted); }
+
+.readme__error {
+  color: var(--accent-2);
+  font-size: .95rem;
+}
+
+/* في الصفحة العربية يبقى عنوان القسم عربيًا بينما يبقى README بالإنجليزية */
+html[dir="rtl"] .readme { direction: ltr; }

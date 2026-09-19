@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===== SEO ===== -->
+  <title>CoachLink — Mohammad Almousa</title>
+  <meta name="description"
+        content="CoachLink — a backend system for managing sports coaching services, built with Python, Django and Django REST Framework.">
+  <meta name="author" content="Mohammad Almousa">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CoachLink — Mohammad Almousa">
+  <meta property="og:description" content="Backend system for managing sports coaching services.">
+  <meta property="og:image" content="../assets/images/projects/coachlink/icon.png">
+
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+
+  <!-- ===== الخطوط ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+  <!-- ===== ملفات التنسيق ===== -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/project.css">
+</head>
+
+<!--
+  ============================================================================
+  صفحة تفاصيل مشروع.
+  لإنشاء صفحة مشروع جديد: انسخ هذا الملف باسم projects/<project-id>.html
+  وغيّر data-project بالأسفل فقط — كل المحتوى يأتي من js/data/projects.js
+  ============================================================================
+-->
+<body data-project="coachlink">
+
+  <a class="skip-link" href="#projectContent" data-i18n="nav.skip">Skip to content</a>
+
+  <!-- شريط العودة (لا يوجد navigation رئيسية في صفحة المشروع) -->
+  <div class="project-topbar">
+    <div class="container project-topbar__inner">
+      <a class="back-link" href="../index.html#works">
+        <span data-icon="back"></span>
+        <span data-i18n="project.back">Back to Portfolio</span>
+      </a>
+
+      <button class="lang-btn lang-btn--inline" id="langToggle" type="button"
+              data-i18n="nav.switchLangAria" data-i18n-attr="aria-label">
+        <span class="lang-btn__icon" data-icon="globe"></span>
+        <span class="lang-btn__label" data-i18n="nav.switchLang">العربية</span>
+      </button>
+    </div>
+  </div>
+
+  <main id="projectContent">
+
+    <!-- رأس المشروع — يُملأ من بيانات المشروع -->
+    <section class="project-hero">
+      <div class="container">
+        <div class="project-hero__top">
+          <h1 id="projectTitle">CoachLink</h1>
+          <span class="badge" id="projectStatus"></span>
+        </div>
+
+        <p class="project-hero__desc" id="projectDesc"></p>
+
+        <ul class="project-hero__stack" id="projectStack"></ul>
+        <ul class="project-hero__links" id="projectLinks"></ul>
+      </div>
+    </section>
+
+    <!-- المعرض — يختفي تمامًا إذا لم توجد صور في بيانات المشروع -->
+    <section class="gallery" id="projectGallery" hidden
+             data-i18n="gallery.title" data-i18n-attr="aria-label">
+      <div class="container"></div>
+    </section>
+
+    <!-- محتوى README.md -->
+    <section class="section" style="padding-block-start:0">
+      <div class="container">
+        <h2 class="project-readme-title" data-i18n="project.readmeTitle">Project Description</h2>
+        <div class="readme" id="projectReadme"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="footerYear">2026</span> <span data-i18n="footer.rights">Mohammad Almousa. All rights reserved.</span></p>
+      <p class="footer__mono" data-i18n="footer.built">Built with HTML, CSS &amp; JavaScript</p>
+    </div>
+  </footer>
+
+  <!-- ===== ملفات JavaScript ===== -->
+  <script src="../js/translations.js"></script>
+  <script src="../js/data/projects.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/icons.js"></script>
+  <script src="../js/project-links.js"></script>
+  <script src="../js/markdown.js"></script>
+  <script src="../js/gallery.js"></script>
+  <script src="../js/project-page.js"></script>
+  <script>
+    /* تشغيل صفحة المشروع */
+    document.addEventListener('DOMContentLoaded', () => {
+      I18N.init();
+      Icons.render();
+      ProjectPage.init();
+
+      const langBtn = document.getElementById('langToggle');
+      if (langBtn) langBtn.addEventListener('click', () => I18N.toggle());
+
+      const year = document.getElementById('footerYear');
+      if (year) year.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
