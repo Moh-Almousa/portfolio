@@ -37,7 +37,7 @@ const PROJECTS = [
       documentation: 'https://drive.google.com/drive/folders/13aQg1NTrKHS0BvFsdXvyivD57Z9dKhCb',
     },
     images: [
-      // صور تجريبية للاختبار — استبدلها بصور مشروعك أو احذف الأسطر.
+      //  استبدلها بصور مشروعك أو احذف الأسطر.
       // إذا تركت المصفوفة فارغة [] فلن يظهر المعرض إطلاقًا في صفحة المشروع.
       'assets/images/projects/coachlink/1.png',
       'assets/images/projects/coachlink/2.png',
@@ -70,7 +70,6 @@ const PROJECTS = [
   },
 
   /* ---------------------------------------------------------------
-     نموذج جاهز لمشروع جديد — احذف علامات التعليق وعدّل القيم:
 
   {
     id: 'PROJECT_ID',
